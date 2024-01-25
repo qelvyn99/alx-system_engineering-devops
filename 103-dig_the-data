@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Bash script that displays the visitor IP along with the HTPP status code
+# from the Apache log file
+# Format: IP HTTP_CODE
+# In list format
+# Ordered from the greatest to the lowest number of occurrences
+# See example
+# You must use awk
+
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
