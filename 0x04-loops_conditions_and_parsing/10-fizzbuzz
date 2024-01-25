@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Bash script that displays umbers from 1 to 100
+# Displays FizzBuzz when the number is a multiple of 3 and 5
+# Displays Fizz when the number is multiple of 3
+# Displays Buzz when the number is a multiple of 5
+# Otherwise, displays the number
+# In a list format
+
+h=1
+while (( h <= 100 ))
+do
+	if (( h % 5 == 0 )) && (( h % 3 == 0 ));
+	then
+		echo "FizzBuzz"
+	elif (( h % 5 == 0 ));
+	then
+		echo "Buzz"
+	elif (( h % 3 == 0));
+	then
+		echo "Fizz"
+	else
+		echo $h
+	fi
+	((h++))
+done
