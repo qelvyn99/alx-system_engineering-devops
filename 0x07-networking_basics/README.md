@@ -1,0 +1,1 @@
+https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/4e6a0ad87a65d7054248.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230303%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230303T210928Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=b531c3bce8f7b74d7fb1e45bac6ddccf069c2d214e6db63ee285e4805748e554
