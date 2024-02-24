@@ -1,1 +1,19 @@
-i
+https://docs.google.com/presentation/d/1IyNmrEgd7DLgEtARTt-KJi71RG2Z4AzVxsYtrrGMpgc/edit?usp=sharing
+#A server is a computer program or device that provides a service to another computer program and its user, also known as the client.
+#A domain name is a unique, easy-to-remember address used to access websites, such as ‘google.com’, and ‘facebook.com’.
+#Users can connect to websites using domain names thanks to the DNS system.
+#www is a CNAME (Canonical Name) DNS record-type in www.foobar.com since it also points to the same IP address as foobar.com and if 
+#the IP address changes we can only record changes in the DNS A record of foobar.com
+# All website data is stored on a physical web server to ensure its safety.
+# The primary role of a web server is to store, process, and deliver requested information or webpages to end users.
+# The role of an application server is to host, manage, and run software applications and related services for client computers.
+# A database refers to a collection of logically related information organized so that it can be easily accessible, managed, 
+#and updated. Databases are generally accessed electronically from a computer system and are usually controlled by a database management system (DBMS).
+# Based on the search results, it appears that when a user requests a website, their computer is communicating with the web server using the Hypertext Transfer Protocol (HTTP).
+# Based on the search results, the server uses the HyperText Transfer Protocol (HTTP) to communicate with the computer of the user requesting the website 
+# A single point of failure (SPOF) is a potential risk posed by a flaw in the design, implementation or configuration of a circuit or system.
+# SPOF refers to one fault or malfunction that can cause an entire system to stop operating.
+# Downtime is much more critical to an organization because it means a single point of failure was ignored or overlooked or failover systems 
+#weren’t able to seamlessly take over.One of the search results (result 4) mentions that a limitation of a system is that it 
+"Cannot scale if too much incoming traffic."
+# 

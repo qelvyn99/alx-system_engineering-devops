@@ -1,0 +1,39 @@
+https://docs.google.com/presentation/d/1nj-LXVPCEtn80iLMG4VMUN4qtt-sQwq2PAaqUc0d_HE/edit?usp=sharing
+##comments
+The distribution algorithm the load balancer is configured with and how it works.
+The HAProxy load balancer is configured with the Round Robin distribution algorithm. This algorithm works by using each server behind the load balancer in turns, according to their weights. It’s also probably the smoothest and most fair algorithm as the servers’ processing time stays equally distributed. As a dynamic algorithm, Round Robin allows server weights to be adjusted on the go.
+The setup enabled by the load-balancer.
+The HAProxy load-balancer is enabling an Active-Passive setup rather than an Active-Active setup. In an Active-Active setup, the load balancer distributes workloads across all nodes in order to prevent any single node from getting overloaded. Because there are more nodes available to serve, there will also be a marked improvement in throughput and response times. On the other hand, in an Active-Passive setup, not all nodes are going to be active (capable of receiving workloads at all times).
+In the case of two nodes, for example, if the first node is already active, the second node must be passive or on standby.
+The second or the next passive node can become an active node if the preceding node is inactive.
+How a database Primary-Replica (Master-Slave) cluster works.
+A Primary-Replica setup configures one server to act as the Primary server and the other server to act as a Replica of the Primary server. However, the Primary server is capable of performing read/write requests whilst the Replica server is only capable of performing read requests. Data is synchronized between the Primary and Replica servers whenever the Primary server executes a write operation.
+The difference between the Primary node and the Replica node in regard to the application.
+The Primary node is responsible for all the write operations the site needs whilst the Replica node is capable of processing read operations, which decreases the read traffic to the Primary node.
+Issues With This Infrastructure
+There are multiple SPOF (Single Point Of Failure).
+For example, if the Primary MySQL database server is down, the entire site would be unable to make changes to the site (including adding or removing users). The server containing the load balancer and the application server connecting to the primary database server are also SPOFs.
+Security issues.
+The data transmitted over the network isn't encrypted using an SSL certificate so hackers can spy on the network. There is no way of blocking unauthorized IPs since there's no firewall installed on any server.
+No monitoring.
+We have no way of knowing the status of each server since they're not being monitored
+## solutions
+3 Server Web Infrastructure:
+
+1 Web Server (Nginx): This web server is responsible for serving the web pages requested by the users. It will also be used to serve static content, such as images, videos, and other multimedia content.
+
+1 Application Server: This application server will host the application files, such as the codebase, database files, etc. It will also be responsible for hosting the application logic and connecting to the database.
+
+1 Load Balancer (HAproxy): This load balancer will be responsible for distributing the web requests to the web server and application server. It will be configured with a round-robin algorithm, which distributes the requests evenly across all the servers. This will enable an Active-Active setup, meaning the application server and web server will both be able to handle requests.
+
+1 Set of Application Files (Your Code Base): These are the application files, such as the codebase, database files, etc., that will be hosted on the application server.
+
+1 Database (MySQL): This database will be hosted on the application server and will be used to store information about the users, such as their profile information, as well as any other data related to the application. The database will be configured with a Primary-Replica (Master-Slave) cluster, meaning that the Primary node is the primary source of truth for the data, while the Replica node is used for backup and recovery.
+
+Issues:
+
+1. SPOFs: The infrastructure is vulnerable to single points of failure, as there is only one web server, one application server, and one database. If any of these components fails, the entire system will be unavailable.
+
+2. Security Issues: There is no firewall or HTTPS configured, making the system vulnerable to attack.
+
+3. No Monitoring: There is no system in place for monitoring and alerting if any of the components fail or are under heavy load.
