@@ -67,6 +67,30 @@ error_page 404 /custom_404.html;
                 proxy_http_version 1.1;
         }
 
+        # Location block for the Airbnb page cerving content listening from a different port
+        location /airbnb-dynamic/number_odd_or_even/ {
+                # Proxy requests to the Gunicorn application running on port 5001
+                proxy_pass http://localhost:5001/number_odd_or_even/;
+
+                # Set headers for the forwarded request
+                proxy_set_header Host $host;
+
+                # Set HTTP version
+                proxy_http_version 1.1;
+        }
+
+        # Location block for the Airbnb page cerving content listening from a different port
+        location /api/ {
+                # Proxy requests to the Gunicorn application running on port 5002
+                proxy_pass http://localhost:5002;
+
+                # Set headers for the forwarded request
+                proxy_set_header Host $host;
+
+                # Set HTTP version
+                proxy_http_version 1.1;
+        }
+
         # pass PHP scripts to FastCGI server
         #
         #location ~ \.php$ {
